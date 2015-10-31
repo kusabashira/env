@@ -1,4 +1,5 @@
 remote_file "/home/wara/.vimrc"
+remote_file "/home/wara/.gvimrc"
 remote_file "/home/wara/.editorconfig"
 
 directory   "/home/wara/.vim"
