@@ -8,7 +8,7 @@ alias htog="perl -i -pe's#https://(.*?)/#git@\1:#' .git/config"
 alias gtoh="perl -i -pe's#git@(.*?):#https://\1/#' .git/config"
 
 #vars
-export PS1='λ '
+export PS1='$ '
 export GOPATH="$HOME/work/go"
 
 #path
