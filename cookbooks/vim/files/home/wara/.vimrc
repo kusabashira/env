@@ -1,5 +1,3 @@
-set all&
-
 command! -bar -complete=file -nargs=*
 \ QArgs  :let g:quickrun_config['_'].args = join([<f-args>], ' ')
 command! -bar
