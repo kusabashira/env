@@ -14,3 +14,5 @@ let g:go_highlight_trailing_whitespace_error=0
 let g:EditorConfig_max_line_indicator='none'
 
 runtime bundle/vim-unbundle/plugin/unbundle.vim
+syntax on
+filetype plugin indent on
