@@ -3,6 +3,7 @@
 
 #vars
 export PS1='$ '
+export EDITOR='vim'
 export GOPATH="$HOME/work/go"
 
 #alias
@@ -12,6 +13,7 @@ gc() {
 ga() {
   git commit -am "$*"
 }
+alias e='$EDITOR'
 alias ls='ls --color'
 alias la='ls -la'
 alias htog="perl -i -pe's#https://(.*?)/#git@\1:#' .git/config"
