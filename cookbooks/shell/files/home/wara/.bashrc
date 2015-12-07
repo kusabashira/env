@@ -1,6 +1,11 @@
 #system bashrc
 [ -f /etc/bashrc ] && . /etc/bashrc
 
+#misc
+for misc in ~/.bash/*; do
+  [ -f "$misc" ] && . "$misc"
+done
+
 #vars
 export PS1='$ '
 export EDITOR='vim'
