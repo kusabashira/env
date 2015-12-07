@@ -15,11 +15,13 @@ let g:quickrun_config={
 let g:go_highlight_trailing_whitespace_error=0
 let g:EditorConfig_max_line_indicator='none'
 
-function! QuickRun()
-  if filewritable(expand("%:p")) | write | endif
-  QuickRun
-endfunction
+if has('vim_starting')
+  function! QuickRun()
+    if filewritable(expand("%:p")) | write | endif
+    QuickRun
+  endfunction
 
-runtime bundle/vim-unbundle/plugin/unbundle.vim
-syntax on
-filetype plugin indent on
+  runtime bundle/vim-unbundle/plugin/unbundle.vim
+  syntax on
+  filetype plugin indent on
+endif
