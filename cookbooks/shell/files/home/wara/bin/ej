@@ -1,0 +1,2 @@
+#!/bin/sh
+gotran en ja "$@"

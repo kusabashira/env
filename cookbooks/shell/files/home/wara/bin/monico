@@ -1,0 +1,143 @@
+#! /bin/bash
+set -eu
+readonly version='0.3.0'
+
+main() {
+  parse_flags "$@"
+  monitor | execute
+}
+
+parse_flags() {
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -b|--buffer-output)
+        require_buffering=true
+        ;;
+      -b*)
+        require_buffering=true
+        next="-${1#-b}"
+        shift
+        set -- "$next" "$@"
+        continue
+        ;;
+      -C|--no-clear)
+        require_clear=false
+        ;;
+      -C*)
+        require_clear=false
+        next="-${1#-C}"
+        shift
+        set -- "$next" "$@"
+        continue
+        ;;
+      -d|--directory)
+        if [[ $# -lt 2 ]]; then
+          echo "${0##*/}: option requires an argument -- '${1##*-}'" >&2
+          exit 2
+        fi
+        directory="$2"
+        shift
+        ;;
+      -d*)
+        directory="${1#-d}"
+        ;;
+      --directory=*)
+        directory="${1#--directory=}"
+        ;;
+      --help)
+        usage
+        exit 0
+        ;;
+      --version)
+        version
+        exit 0
+        ;;
+      --)
+        shift
+        break
+        ;;
+      -*)
+        echo "${0##*/}: unrecognized option -- '${1##*-}'" >&2
+        exit 2
+        ;;
+      *)
+        break
+        ;;
+    esac
+    shift
+  done
+  require_buffering="${require_buffering:-false}"
+  require_clear="${require_clear:-true}"
+  directory="${directory:-$(pwd)}"
+
+  if [[ $# -lt 1 ]]; then
+    echo "${0##*/}: no specify cmd" >&2
+    exit 2
+  fi
+  if [[ -z $(type -- "$1" 2> /dev/null) ]]; then
+    echo "${0##*/}: $1: cannot execute" >&2
+    exit 2
+  fi
+  cmd="$1"
+  args=("${@:2}")
+}
+
+usage() {
+  cat <<EOF >&2
+Usage: ${0##*/} [OPTION]... COMMAND [ARGS]...
+Execute COMMAND for changes to current directory.
+
+Options:
+  -b, --buffer-output    output after command finished
+  -C, --no-clear         suppress clear at execute
+  -d, --directory=PATH   change monitored directory to PATH
+      --help             display this help text and exit
+      --version          output version information and exit
+EOF
+}
+
+version() {
+  echo "$version" >&2
+}
+
+monitor() {
+  inotifywait \
+    --event 'create,delete,modify,move' \
+    --exclude '.*\.sw[pox]' \
+    --quiet \
+    --monitor \
+    --recursive \
+    "$directory"
+}
+
+execute() {
+  set +eu
+  if $require_buffering; then
+    buffer="$(mktemp "/tmp/${0##*/}.tmp.XXXXXX")"
+    trap 'rm -rf -- '$buffer EXIT
+  fi
+
+  while read -r; do
+    # ignore continuous notification
+    while read -r -t 0.3; do
+      :
+    done
+
+    if $require_buffering; then
+      "$cmd" "${args[@]}" > "$buffer" 2>&1
+      $require_clear && clear
+      cat "$buffer"
+    else
+      $require_clear && clear
+      "$cmd" "${args[@]}"
+    fi
+
+    # ignore notification by the command
+    while read -r -t 0.3; do
+      :
+    done
+  done
+}
+
+main "$@"
+exit 0
