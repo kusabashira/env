@@ -4,6 +4,8 @@ command! -bar
 \ QInput :5sp ~/.vim/input
 
 let mapleader=' '
+nnoremap <silent><leader>r :<C-u>call QuickRun()<cr>
+
 let g:quickrun_config={
 \   '_' : {
 \     'input': expand('~/.vim/input'),
@@ -12,6 +14,11 @@ let g:quickrun_config={
 \ }
 let g:go_highlight_trailing_whitespace_error=0
 let g:EditorConfig_max_line_indicator='none'
+
+function! QuickRun()
+  if filewritable(expand("%:p")) | write | endif
+  QuickRun
+endfunction
 
 runtime bundle/vim-unbundle/plugin/unbundle.vim
 syntax on
