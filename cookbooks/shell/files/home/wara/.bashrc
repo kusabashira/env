@@ -6,6 +6,12 @@ export PS1='$ '
 export GOPATH="$HOME/work/go"
 
 #alias
+gc() {
+  git commit -m "$*"
+}
+ga() {
+  git commit -am "$*"
+}
 alias ls='ls --color'
 alias la='ls -la'
 alias er='vim `find . -type f | grep -v "/\.git" | peco`'
