@@ -1,0 +1,8 @@
+#!/usr/bin/perl
+use File::Basename qw/basename/;
+
+my $self   = basename $0;
+my $script = "$ENV{HOME}/.$self/$ARGV[0]";
+my @args   = @ARGV[1 .. $#ARGV];
+
+exec $script, @args;

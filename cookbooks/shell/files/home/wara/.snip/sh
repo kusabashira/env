@@ -1,0 +1,9 @@
+#!/bin/bash
+set -eu
+cat <<... > $1
+#!/bin/sh
+
+...
+chmod +x $1
+
+exit 0

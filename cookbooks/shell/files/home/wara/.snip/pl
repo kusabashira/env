@@ -1,0 +1,9 @@
+#!/bin/bash
+set -eu
+cat <<... > $1
+#!/usr/bin/perl
+
+...
+chmod +x $1
+
+exit 0
