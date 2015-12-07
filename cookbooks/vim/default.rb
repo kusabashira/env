@@ -23,3 +23,5 @@ vim_plugin "editorconfig/editorconfig-vim"
 
 vim_plugin "fatih/vim-go"           do set "ftbundle/go" end
 vim_plugin "hotchpotch/perldoc-vim" do set "ftbundle/perl" end
+vim_plugin "mattn/emmet-vim"        do set "ftbundle/html" end
+vim_plugin "othree/html5.vim"       do set "ftbundle/html" end
