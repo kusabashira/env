@@ -23,6 +23,7 @@ alias ls='ls --color'
 alias la='ls -la'
 alias htog="perl -i -pe's#https://(.*?)/#git@\1:#' .git/config"
 alias gtoh="perl -i -pe's#git@(.*?):#https://\1/#' .git/config"
+alias reedit='$EDITOR ~/.bashrc'
 alias resource="source ~/.bashrc"
 
 #path
