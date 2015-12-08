@@ -17,6 +17,7 @@ end
 
 vim_plugin "sunaku/vim-unbundle"
 vim_plugin "thinca/vim-quickrun"
+vim_plugin "tyru/skk.vim"
 vim_plugin "tyru/open-browser.vim"
 vim_plugin "kannokanno/previm"
 vim_plugin "editorconfig/editorconfig-vim"

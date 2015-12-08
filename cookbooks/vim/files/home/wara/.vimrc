@@ -12,6 +12,8 @@ let g:quickrun_config={
 \     'outputter/buffer/split': ':belowright 40vs',
 \   },
 \ }
+let g:skk_auto_save_jisyo=1
+let g:skk_large_jisyo='/usr/share/skk/SKK-JISYO.L'
 let g:go_highlight_trailing_whitespace_error=0
 let g:EditorConfig_max_line_indicator='none'
 
