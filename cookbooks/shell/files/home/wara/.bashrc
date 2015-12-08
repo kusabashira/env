@@ -27,6 +27,7 @@ alias reedit='$EDITOR ~/.bashrc'
 alias resource="source ~/.bashrc"
 
 #path
+PATH="$HOME/bin:$PATH"
 PATH="$GOPATH/bin:$PATH"
 PATH="$(echo "$PATH" | sed 's/:/\n/g' | awk '!a[$0]++' | paste -sd:)"
 export PATH
