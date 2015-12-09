@@ -11,6 +11,12 @@ let g:quickrun_config={
 \     'input': expand('~/.vim/input'),
 \     'outputter/buffer/split': ':belowright 40vs',
 \   },
+\   'javascript' : {
+\     'command': 'nodejs',
+\   },
+\   'python' : {
+\     'command': 'python3',
+\   },
 \ }
 let g:skk_auto_save_jisyo=1
 let g:skk_large_jisyo='/usr/share/skk/SKK-JISYO.L'
