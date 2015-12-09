@@ -1,6 +1,7 @@
 remote_file "/home/wara/.bashrc"
 remote_file "/home/wara/.inputrc"
 remote_file "/home/wara/.gitconfig"
+remote_file "/home/wara/.cdf_src"
 
 directory   "/home/wara/.bash"
 remote_file "/home/wara/.bash/er.bash"
