@@ -19,7 +19,6 @@ ga() {
   git commit -am "$*"
 }
 alias e='$EDITOR'
-alias ls='ls --color'
 alias la='ls -la'
 alias baw='sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g"'
 alias htog="perl -i -pe's#https://(.*?)/#git@\1:#' .git/config"
