@@ -12,7 +12,7 @@ let g:quickrun_config={
 \     'outputter/buffer/split': ':belowright 40vs',
 \   },
 \   'javascript' : {
-\     'command': 'nodejs',
+\     'command': 'node',
 \   },
 \   'python' : {
 \     'command': 'python3',
