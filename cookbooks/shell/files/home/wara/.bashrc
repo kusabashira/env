@@ -11,6 +11,10 @@ export PS1='$ '
 export EDITOR='vim'
 export GOPATH="$HOME/work/go"
 
+#bind
+bind '"\C-x\C-l": " | less"'
+bind '"\C-x\C-v": " | vim -"'
+
 #alias
 gc() {
   git commit -m "$*"
