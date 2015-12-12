@@ -10,6 +10,7 @@ remote_file "/home/wara/.bash/cdf.bash"
 remote_file "/home/wara/.bash/cdp.bash"
 
 directory   "/home/wara/bin"
+remote_file "/home/wara/bin/baw"
 remote_file "/home/wara/bin/ej"
 remote_file "/home/wara/bin/je"
 remote_file "/home/wara/bin/monico"
