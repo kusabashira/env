@@ -1,3 +1,6 @@
 [user]
 	name = kusabashira
 	email = kusabashira227@gmail.com
+
+[ghq]
+  root = ~/work/go
