@@ -14,6 +14,7 @@ export GOPATH="$HOME/work/go"
 # bind
 bind '"\C-x\C-l": " | less"'
 bind '"\C-x\C-v": " | vim -"'
+bind '"\C-x\C-x": "\C-asudo \C-e"'
 
 # alias
 gc() {
