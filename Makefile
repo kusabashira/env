@@ -1,4 +1,4 @@
-.PHONY: all update
+.PHONY: all update dry-run
 all:
 
 update:
