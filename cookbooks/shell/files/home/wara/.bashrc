@@ -23,6 +23,10 @@ gc() {
 ga() {
   git commit -am "$*"
 }
+md() {
+  [ $# -eq 0 ] && exit 2
+  mkdir -p "$1" && cd "$1"
+}
 alias e='$EDITOR'
 alias la='ls -la'
 alias htog="perl -i -pe's#https://(.*?)/#git@\1:#' .git/config"
