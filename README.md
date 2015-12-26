@@ -1,5 +1,5 @@
-myenv
-=====
+env
+===
 
 Setup-script for me.
 
