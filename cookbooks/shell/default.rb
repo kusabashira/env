@@ -1,7 +1,9 @@
 remote_file "/home/wara/.bashrc"
 remote_file "/home/wara/.inputrc"
 remote_file "/home/wara/.gitconfig"
-remote_file "/home/wara/.cdf_src"
+remote_file "/home/wara/.cdf_src" do
+  not_if "test -e /home/wara/.cdf_src"
+end
 
 directory   "/home/wara/.bash"
 remote_file "/home/wara/.bash/er.bash"
