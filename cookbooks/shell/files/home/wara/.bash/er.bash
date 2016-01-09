@@ -1,18 +1,15 @@
 er() {
-  local editor="${EDITOR:-vim}"
-  if [ "$#" -ge 1 ]; then
-    "$editor" "$1"
-    return
-  fi
-  local files=( $(find . -type f | grep -v '/\.git/' | peco) )
-  if [ "${#files[@]}" -ge 1 ]; then
-    "$editor" "${files[@]}"
-  fi
+  local files=()
+  case $# in
+    0) files=( $(find . -type f | grep -v '/\.git/' | ${ER_FILTER:-peco}) ) ;;
+    *) files=( $(find . -type f | grep -v '/\.git/' | grep -F "$1" | head -1) ) ;;
+  esac
+  [[ ${#files[@]} != 0 ]] && ${EDITOR:-vim} "${files[@]}"
 }
 
 _er() {
   local query="${COMP_WORDS[COMP_CWORD]}"
-  local file="$(find . -type f | grep -v '/\.git/' | grep "$query" | head -1)"
+  local file="$(find . -type f | grep -v '/\.git/' | grep -F "$query" | head -1)"
   COMPREPLY=( "$file" )
   compopt -o nospace
 }
