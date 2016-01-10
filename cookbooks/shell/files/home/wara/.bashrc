@@ -12,9 +12,9 @@ export EDITOR='vim'
 export GOPATH="$HOME/work/go"
 
 # bind
-bind '"\C-x\C-l": " | less"'
-bind '"\C-x\C-v": " | vim -"'
-bind '"\C-x\C-x": "\C-asudo \C-e"'
+bind '"\C-x\C-l": " | less\C-m"'
+bind '"\C-x\C-v": " | vim -\C-m"'
+bind '"\C-x\C-x": "\C-asudo \C-e\C-m"'
 
 # alias
 gc() {
