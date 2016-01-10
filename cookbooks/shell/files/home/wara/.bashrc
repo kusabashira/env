@@ -28,6 +28,7 @@ md() {
   mkdir -p "$1" && cd "$1"
 }
 alias e='$EDITOR'
+alias ls='ls --color=auto'
 alias la='ls -la'
 alias owd='xdg-open "$(pwd)"'
 alias htog="perl -i -pe's#https://(.*?)/#git@\1:#' .git/config"
