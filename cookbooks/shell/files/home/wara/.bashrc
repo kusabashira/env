@@ -12,7 +12,7 @@ export EDITOR='vim'
 export GOPATH="$HOME/work/go"
 
 # bind
-bind -x '"\C-j": "ls"'
+bind -x '"\C-j": "vim"'
 bind '"\C-x\C-l": " | less\C-m"'
 bind '"\C-x\C-v": " | vim -\C-m"'
 bind '"\C-x\C-x": "\C-asudo \C-e\C-m"'
