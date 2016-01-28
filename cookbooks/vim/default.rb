@@ -1,6 +1,5 @@
 remote_file "/home/wara/.vimrc"
 remote_file "/home/wara/.gvimrc"
-remote_file "/home/wara/.editorconfig"
 
 directory   "/home/wara/.vim"
 remote_file "/home/wara/.vim/input"
@@ -20,7 +19,6 @@ vim_plugin "thinca/vim-quickrun"
 vim_plugin "tyru/skk.vim"
 vim_plugin "tyru/open-browser.vim"
 vim_plugin "kannokanno/previm"
-vim_plugin "editorconfig/editorconfig-vim"
 
 vim_plugin "fatih/vim-go"           do set "ftbundle/go"   end
 vim_plugin "hotchpotch/perldoc-vim" do set "ftbundle/perl" end
